@@ -1,26 +1,52 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --brand-bg: #F8F3F9;
+  --brand-ink: #17242D;
+  --brand-line: #E8E1EE;
+  --brand-pink: #A52DAD;
+  --brand-blue: #4648B4;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body {
+  height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--brand-bg);
+  color: var(--brand-ink);
+}
+
+::selection {
+  background: rgba(165, 45, 173, 0.20);
+}
+
+.brand-gradient-text {
+  background: linear-gradient(90deg, var(--brand-pink), var(--brand-blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-soft-radial {
+  background:
+    radial-gradient(900px 500px at 50% 0%, rgba(165, 45, 173, 0.10), transparent 55%),
+    radial-gradient(900px 500px at 85% 25%, rgba(70, 72, 180, 0.10), transparent 55%),
+    var(--brand-bg);
+}
+
+.container-page {
+  @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
+}
+
+.card {
+  @apply rounded-xl2 border border-brand-line bg-white shadow-soft;
+}
+
+.pill {
+  @apply rounded-full border border-brand-line bg-white/70 px-3 py-1 text-sm;
 }
