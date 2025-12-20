@@ -1,10 +1,9 @@
 @import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root{
+/* =========================
+   Brand variables
+   ========================= */
+:root {
   --brand-bg: #F8F3F9;
   --brand-ink: #17242D;
   --brand-line: #E8E1EE;
@@ -12,7 +11,11 @@
   --brand-blue: #4648B4;
 }
 
-html, body {
+/* =========================
+   Base styles
+   ========================= */
+html,
+body {
   height: 100%;
 }
 
@@ -22,31 +25,74 @@ body {
 }
 
 ::selection {
-  background: rgba(165, 45, 173, 0.20);
+  background: rgba(165, 45, 173, 0.2);
 }
 
+/* =========================
+   Text utilities
+   ========================= */
 .brand-gradient-text {
-  background: linear-gradient(90deg, var(--brand-pink), var(--brand-blue));
+  background: linear-gradient(
+    90deg,
+    var(--brand-pink),
+    var(--brand-blue)
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
+/* =========================
+   Backgrounds
+   ========================= */
 .bg-soft-radial {
   background:
-    radial-gradient(900px 500px at 50% 0%, rgba(165, 45, 173, 0.10), transparent 55%),
-    radial-gradient(900px 500px at 85% 25%, rgba(70, 72, 180, 0.10), transparent 55%),
+    radial-gradient(
+      900px 500px at 50% 0%,
+      rgba(165, 45, 173, 0.1),
+      transparent 55%
+    ),
+    radial-gradient(
+      900px 500px at 85% 25%,
+      rgba(70, 72, 180, 0.1),
+      transparent 55%
+    ),
     var(--brand-bg);
 }
 
+/* =========================
+   Layout helpers (pure CSS)
+   ========================= */
 .container-page {
-  @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
+  max-width: 72rem; /* max-w-6xl */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
+@media (min-width: 640px) {
+  .container-page {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* =========================
+   UI primitives (pure CSS)
+   ========================= */
 .card {
-  @apply rounded-xl2 border border-brand-line bg-white shadow-soft;
+  background: #ffffff;
+  border: 1px solid var(--brand-line);
+  border-radius: 1.5rem; /* equivalent to rounded-2xl */
+  box-shadow: 0 10px 30px rgba(23, 36, 45, 0.1);
 }
 
 .pill {
-  @apply rounded-full border border-brand-line bg-white/70 px-3 py-1 text-sm;
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--brand-line);
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
 }

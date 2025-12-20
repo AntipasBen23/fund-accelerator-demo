@@ -19,9 +19,11 @@ export type SlideType =
   | "gtm"
   | "competition"
   | "business_model"
+  | "moat"
   | "team"
   | "ask"
   | "other";
+
 
 export type Deck = {
   id: string;
